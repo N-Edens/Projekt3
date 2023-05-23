@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ring Road Data</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+	<style>
+		#ring-road-chart {
+			position: relative;
+		}
+
+		#data-switcher {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="graph-container">
+		<canvas id="ring-road-chart"></canvas>
+		<div id="data-switcher">
+			<button onclick="changeData('vehicleData')">Antal biler på vejene</button>
+			<button onclick="changeData('antalBiler')">Antal pr. type</button>
+			<button onclick="changeData('co2Data')">CO2 udledning</button>
+		</div>
+	</div>
+	<script>
+		var ctx = document.getElementById('ring-road-chart').getContext('2d');
+		var chart;
+		var vehicleData = {
+			labels: ['Vestre Ringgade', 'Åby Ringvej', 'Hasle Ringvej', 'Viby Ringvej'],
+			datasets: [{
+				label: '2013',
+				backgroundColor: 'rgba(255, 99, 132, 0.2)',
+				borderColor: 'rgba(255, 99, 132, 1)',
+				borderWidth: 1,
+				data: [31700, 25950, 26333, 27500]
+			}, {
+				label: '2016',
+				backgroundColor: 'rgba(54, 162, 235, 0.2)',
+				borderColor: 'rgba(54, 162, 235, 1)',
+				borderWidth: 1,
+				data: [32350, 28633, 24200, 31333]
+			}, {
+				label: '2022',
+				backgroundColor: 'rgba(255, 206, 86, 0.2)',
+				borderColor: 'rgba(255, 206, 86, 1)',
+				borderWidth: 1,
+				data: [30267, 36300, 27433, 28900]
+			}]
+		};
+
+		var antalBiler = {
+			labels: ['Vestre Ringgade', 'Åby Ringvej', 'Hasle Ringvej', 'Viby Ringvej'],
+			datasets: [{
+				label: 'Benzin',
+				backgroundColor: 'rgba(255, 99, 132, 0.2)',
+				borderColor: 'rgba(255, 99, 132, 1)',
+				borderWidth: 1,
+				data: [16933, 20685, 17183, 17944]
+			}, {
+				label: 'Diesel',
+				backgroundColor: 'rgba(54, 162, 235, 0.2)',
+				borderColor: 'rgba(54, 162, 235, 1)',
+				borderWidth: 1,
+				data: [6470, 7903, 6565, 6856]
+			}, {
+
+				label: 'El',
+				backgroundColor: 'rgba(75, 192, 192, 0.2)',
+				borderColor: 'rgba(75, 192, 192, 1)',	
+				borderWidth: 1,
+				data: [1409, 1721, 1430, 1493]
+			}, {
+				label: 'Pluginhybrid',
+				backgroundColor: 'rgba(255, 206, 86, 0.2)',
+				borderColor: 'rgba(255, 206, 86, 1)',
+				borderWidth: 1,
+				data: [1139, 1392, 1156, 1207]
+			}]
+		};
+
+        var co2Data = {
+	labels: ['Vestre Ringgade', 'Åby Ringvej', 'Hasle Ringvej', 'Viby Ringvej'],
+	datasets: [
+		{
+			label: 'Benzin',
+			backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			borderColor: 'rgba(255, 99, 132, 1)',
+			borderWidth: 1,
+			data: [2794, 3413, 2835, 2961],
+		},
+		{
+			label: 'Diesel',
+			backgroundColor: 'rgba(54, 162, 235, 0.2)',
+			borderColor: 'rgba(54, 162, 235, 1)',
+			borderWidth: 1,
+			data: [1067, 1304, 1083, 1131],
+		},
+		{
+			label: 'El',
+			backgroundColor: 'rgba(75, 192, 192, 0.2)',
+			borderColor: 'rgba(75, 192, 192, 1)',
+			borderWidth: 1,
+			data: [127, 155, 129, 134],
+		},
+		{
+			label: 'Pluginhybrid',
+			backgroundColor: 'rgba(255, 206, 86, 0.2)',
+			borderColor: 'rgba(255, 206, 86, 1)',
+			borderWidth: 1,
+			data: [118 ,145, 120, 126],
+		},
+	],
+};
+
+function changeData(dataType) {
+	if (chart) {
+		chart.destroy();
+	}
+
+	var data;
+
+	switch (dataType) {
+		case 'vehicleData':
+			data = vehicleData;
+			break;
+		case 'antalBiler':
+			data = antalBiler;
+			break;
+		case 'co2Data':
+			data = co2Data;
+			break;
+		default:
+			data = vehicleData;
+	}
+
+	chart = new Chart(ctx, {
+		type: 'bar',
+		data: data,
+		options: {
+			scales: {
+				yAxes: [
+					{
+						ticks: {
+							beginAtZero: true,
+							callback: function (value) {
+								if (dataType === 'co2Data') {
+									return value + ' kg';
+								} else {
+									return value;
+								}
+							},
+						},
+					},
+				],
+			},
+			tooltips: {
+				callbacks: {
+					label: function (tooltipItem, data) {
+						var datasetLabel =
+							data.datasets[tooltipItem.datasetIndex].label || '';
+						if (dataType === 'co2Data') {
+							return datasetLabel + ': ' + tooltipItem.yLabel + ' kg';
+						} else {
+							return datasetLabel + ': ' + tooltipItem.yLabel;
+						}
+					},
+				},
+			},
+		},
+	});
+}
+
+// Initial chart setup
+changeData('vehicleData');
+
+	</script>
+</body>
+</html>

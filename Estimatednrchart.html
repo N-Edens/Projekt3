@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    canvas {
+      max-width: 1800px;
+      max-height: 600px;
+      margin: 0px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="lineChart"></canvas>
+
+  <script>
+    // Data for electric vehicle growth in Aarhus
+    var data = {
+      labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034', '2035', '2036', '2037', '2038', '2039', '2040', '2041', '2042', '2043', '2044', '2045', '2046'],
+      datasets: [{
+        label: 'Electric Vehicles in Aarhus',
+        data: [435, 512, 903, 1902, 4159, 7111, 9601, 12205, 14810, 17415, 20020, 22624, 25229, 27834, 30439, 33043, 35648, 38253, 40858, 43462, 46067, 48672, 51277, 53881, 56486, 59091, 61696, 64301, 66905],
+        borderColor: 'Green',
+        fill: false
+      }]
+    };
+
+    // Target value for 2030
+    var target2030 = 64822;
+
+    // Find index of 2030
+    var index2030 = data.labels.findIndex(function(label) {
+      return label === '2030';
+    });
+
+    // Create array for line coordinates
+    var lineData = [];
+
+// Populate line coordinates
+for (var i = 0; i < data.labels.length; i++) {
+  if (i >= index2030) {
+    lineData.push(target2030);
+  } else {
+    lineData.push(null);
+  }
+}
+
+    // Add line dataset
+    data.datasets.push({
+      label: 'Line from 2030',
+      data: lineData,
+      borderColor: 'red',
+      fill: false
+    });
+
+    // Chart configuration
+    var config = {
+      type: 'line',
+      data: data,
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: 'Electric Vehicle Growth in Aarhus'
+        },
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true,
+              text: 'Year'
+            }
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              text: 'Number of Electric Vehicles'
+            }
+          }
+        }
+      }
+    };
+
+    // Create the chart
+    var ctx = document.getElementById('lineChart').getContext('2d');
+    new Chart(ctx, config);
+  </script>
+</body>
+</html>

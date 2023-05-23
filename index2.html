@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <style>
+    #myChart {
+      margin-top: -30px; /* Adjust the margin-top value to reduce the top margin */
+      margin-bottom: 0px; /* Adjust the margin-bottom value to reduce the bottom margin */
+      padding-top: 0px; /* Adjust the padding-top value to reduce the top padding */
+      padding-bottom: 0px; /* Adjust the padding-bottom value to reduce the bottom padding */
+    }
+  </style>
+  <canvas id="myChart"></canvas>
+
+  <script>
+    // Data
+    var labels = [
+      "2018", "2019", "2020", "2021", "2022", "2023",
+      "2024", "2025", "2026", "2027", "2028", "2029", "2030"
+    ];
+
+    var data = {
+      benzine: [
+        84645, 88041, 90552, 92939, 95785, 95320, 97064,
+        98256, 99447, 100639, 101830, 103022, 104213
+      ],
+      diesel: [
+        38262, 38969, 38954, 39045, 38192, 36098, 34835,
+        32194, 28440, 23964, 19214, 14622, 10531
+      ],
+      el: [
+        435, 512, 903, 1902, 4159, 7111, 9601, 12205, 14810,
+        17415, 20020, 22624, 25229
+      ],
+      pluginHybrid: [
+        171, 401, 643, 1763, 4462, 6245, 8637, 10879, 13119,
+        15360, 17601, 19842, 22082
+      ]
+    };
+
+    // Create the chart
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Benzin',
+            data: data.benzine,
+            borderColor: 'red',
+            fill: false
+          },
+          {
+            label: 'Diesel',
+            data: data.diesel,
+            borderColor: 'blue',
+            fill: false
+          },
+          {
+            label: 'El',
+            data: data.el,
+            borderColor: 'green',
+            fill: false
+          },
+          {
+            label: 'Plugin Hybrid',
+            data: data.pluginHybrid,
+            borderColor: 'orange',
+            fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            display: true,
+            grid: {
+              display: false
+            },
+            ticks: {
+              font: {
+                size: 14
+              },
+              color: '#333'
+            },
+            title: {
+              display: true,
+              text: 'Year',
+              font: {
+                size: 14,
+                weight: 'bold'
+              },
+              color: '#666'
+            }
+          },
+          y: {
+            display: true,
+            grid: {
+              color: '#ddd',
+              lineWidth: 1,
+              drawBorder: false
+            },
+            ticks: {
+              font: {
+                size: 14
+              },
+              color: '#333'
+            },
+            title: {
+              display: true,
+              text: 'Antal biler',
+              font: {
+                size: 14,
+                weight: 'bold'
+              },
+              color: '#666'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: true,
+            position:'bottom',
+labels: {
+font: {
+size: 12
+},
+color: '#333'
+}
+},
+title: {
+display: true,
+font: {
+size: 20,
+weight: 'bold'
+},
+color: '#666'
+}
+}
+}
+});
+</script>
+
+</body>
+</html>

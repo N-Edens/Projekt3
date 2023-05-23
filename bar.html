@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .chart {
+      width: 400px;
+      margin: 20px;
+    }
+    .chart-title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    .chart-line {
+      width: 100%;
+      height: 2px;
+      background-color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .bar-container {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .bar-label {
+      width: 120px;
+      text-align: right;
+      padding-right: 10px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .bar-wrapper {
+      flex-grow: 1;
+      height: 40px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background-color: #2196F3;
+      transition: width 0.5s ease-in-out;
+      position: relative;
+    }
+
+    .bar-fill1 {
+      height: 100%;
+      background-color: #26d416;
+      transition: width 0.5s ease-in-out;
+      position: relative;
+    }
+
+    .bar-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chart">
+    <div class="chart-line"></div>
+    <div class="bar-container">
+      <div class="bar-label">Nuværende CO2 udslip:</div>
+      <div class="bar-wrapper">
+        <div class="bar-fill" style="width: 65%;">
+          <span class="bar-text">331.367.483 Kg CO2</span>
+        </div>
+      </div>
+    </div>
+    <div class="bar-container">
+      <div class="bar-label">CO2 ved 40% elbiler:</div>
+      <div class="bar-wrapper">
+        <div class="bar-fill" style="width: 54%;">
+          <span class="bar-text">277.076.474 Kg CO2</span>
+        </div>
+      </div>
+    </div>
+    <div class="bar-container">
+      <div class="bar-label">CO2 ved 100% elbiler:</div>
+      <div class="bar-wrapper">
+        <div class="bar-fill" style="width: 36%;">
+          <span class="bar-text">188.455.917 Kg CO2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+<script>
+  // Data values
+  var co2Data = [331367483, 277076474, 188455917];
+
+  // Update bar widths and data text with data values
+  var bars = document.getElementsByClassName('bar-fill');
+  for (var i = 0; i < bars.length; i++) {
+    var width = (co2Data[i] / Math.max(...co2Data)) * 100;
+    bars[i].style.width = width + '%';
+
+    var barText = bars[i].querySelector('.bar-text');
+    barText.textContent = co2Data[i].toLocaleString() + ' Kg CO2';
+  }
+
+  var bars1 = document.getElementsByClassName('bar-fill1');
+  for (var i = 0; i < bars1.length; i++) {
+    var width = (co2Data[i] / Math.max(...co2Data)) * 100;
+    bars1[i].style.width = width + '%';
+
+    var barText = bars1[i].querySelector('.bar-text');
+    barText.textContent = co2Data[i].toLocaleString() + ' Kg CO2';
+  }
+</script>

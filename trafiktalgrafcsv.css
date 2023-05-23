@@ -1,0 +1,184 @@
+svg {
+    g rid-area: Main;
+    b ackground-position: right;
+    m argin-left: 158px;
+    m argin-right: 0px;
+    b order: #F29E16;
+    background-color: rgb(175, 189, 46);
+    t ext-align: center;
+    f ont-family: Sitka Banner Semibold;
+    b ackground-size: 300px;    m argin-left: 30px;
+m argin-right: 30px;
+    m argin-left: 300px;
+    margin-left: 158px;
+    }  
+  
+    h1 {  grid-area: Main;           
+        font-family: Sitka Banner Semibold;;
+                      color: #fffdfd;
+                      word-spacing: 0px;
+                      margin-bottom: 0px;
+                 margin-top: 76px;
+                 margin-right: 902px;
+                 margin-left: 158px;
+                 padding-left: 94px;
+                 padding-top: 6px;
+                 padding-right: 1px;
+                 background-color: rgb(175, 189, 46);
+                 text-align: center;
+    }
+
+    .awrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-auto-rows:minmax(100px, 1fr);
+        grid-template-areas:
+          "hd hd hd hd hd hd hd hd hd"
+          "Main Main Main Main Main Main Main Main Main"
+          "Main Main Main Main Main Main Main Main Main"
+          "Main Main Main Main Main Main Main Main Main"
+          "Main Main Main Main Main Main Main Main Main"
+          "Main Main Main Main Main Main Main Main Main"
+          "Main Main Main Main Main Main Main Main Main"
+          "Main Main Main Main Main Main Main Main Main"
+          "Main Main Main Main Main Main Main Main Main"
+          "Main Main Main Main Main Main Main Main Main"
+          "Main Main Main Main Main Main Main Main Main"
+          "ft ft ft ft ft ft ft ft ft";
+        }   
+    
+        footer {
+            grid-area: ft;   
+             padding: 6px;
+             background-color: rgb(25, 144, 174);
+             color: rgba(193, 215, 156, 0.292);
+             text-align: right;
+             font-family: Sitka Banner Semibold;
+           }    
+          
+
+  b ody {
+        grid-area: Main;
+    b ackground-color: #8a7777;
+    f ont-family: Sitka Banner Semibold;
+    b order: #F29E16;
+    c olor: #e0f555;
+    ma rgin-left: 0px;
+    m argin-right: 0px;
+    text-ali gn: center;
+    f ont-family: Sitka Banner Semibold;
+    margin-left: 158px;
+    }
+    
+    
+  h 3  { 
+    grid-area: Main;           
+    font-family: Sitka Banner Semibold;;
+                  color: #0c0c0c;
+                  word-spacing: 1091px;   
+                  margin-bottom: 0px;
+             margin-top: 0px;
+             margin-right: 162px;    
+             margin-left: 158px;
+             background-color: rgb(25, 144, 174);
+             text-align: center;
+    }
+  
+          p {
+          grid-area: Main;           
+          font-family: Sitka Banner Semibold;;
+                        color: #0c0c0c;
+                        word-spacing: 1045px;
+                        margin-bottom: 0px;
+                   margin-top: 0px;
+                   margin-right: 162;
+                   margin-left: 158px;
+                   background-color: rgb(25, 144, 174);
+                   text-align: right;
+        }
+
+        h 6 {
+          grid-area: Main;           
+          font-family: Sitka Banner Semibold;;
+                        color: #0c0c0c;
+                        word-spacing: 0px;
+                        margin-bottom: 0px;
+                   margin-top: 0px;
+                   margin-right: 1660px;
+                   margin-left: 0px;
+                   background-color: rgb(25, 144, 174);
+                   text-align: right;
+        }
+        svg {
+            g rid-area: Main;
+            b ackground-position: right;
+            m argin-left: 158px;
+            m argin-right: 0px;
+            b order: #F29E16;
+            background-color: rgb(175, 189, 46);
+            t ext-align: center;
+            f ont-family: Sitka Banner Semibold;
+            b ackground-size: 300px;    m argin-left: 30px;
+        m argin-right: 30px;
+            m argin-left: 300px;
+            }  
+         
+               {
+                stroke: #B8B8B8;
+              }
+            t itle {
+                font-size: 12px;
+                font-family: Sitka Banner Semibold;
+        color:rgb(175, 189, 46);
+            }
+        
+               text {
+                font-size: 16px;
+                font-family: Sitka Banner Semibold;
+        color:blanchedalmond;
+            }
+            t itle {
+                f ont: 6px;
+                font-family: Sitka Banner Semibold;
+        color:blanchedalmond;
+            }
+            
+            . y Axis {
+        stroke:blanchedalmond; 
+        color:blanchedalmond;
+        
+            }
+            t itle {
+                font-size: 1px;
+                font-family: Sitka Banner Semibold;
+        color:blanchedalmond;
+            }
+            g {
+                stroke:blanchedalmond; 
+                color:rgb(173, 130, 65);
+                            }
+                    t ext a {
+                        font-size: 6px;
+                        font-family: Sitka Banner Semibold;
+                color:rgb(213, 155, 68);
+                    }
+                    text {
+                        font-size: 20px;
+                        font-family: Sitka Banner Semibold;
+                color:rgb(213, 155, 68);
+                    }
+        
+                    text  {
+                        font-size: 20px;
+                        font-family: Sitka Banner Semibold;
+                color:rgb(213, 155, 68);
+                    }
+                    t ext {
+                        font-size: 20px;
+                        font-family: Sitka Banner Semibold;
+                color:rgb(213, 155, 68);
+                    }
+                    a.yAxis {
+                        stroke: #ff8b8b;
+                    }
+   

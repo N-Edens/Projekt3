@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div class="header">
+        <!--Content before waves-->
+        <div class="inner-header flex">
+        <h2>Driving Towards Sustainability</h2>
+        </div></div>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="produkt.css"/>
+    <style>
+    body {
+      background-image: url("https://wallpaperaccess.com/full/5691542.jpg"); /* Replace with the path to your image */
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .rotate {
+    transform: rotate(180deg);
+  }
+  </style>
+    <div class="container2">
+      <h4>VERDEN ER I FORANDRING<br>OG BILER HAR EN STOR INDFLYDELSE</h4>
+      <h5>Driving Towards Sustainability, er et projekt, der er lavet ved brug af data, til at undersøge brugen af biler i Aarhus, samt udledningen af CO2. Her kigges der nærmere på 2030 målet fra Aarhus Kommune, og hvor opnåeligt det er.</h5>
+    </div>
+   <div class="container"><br>
+    <h3>Hvilke veje er de mest trafikerede i Aarhus?</h3>
+    <h6> En udvikling af de 4 mest trafikerede veje i Aarhus i både årene 2013, 2016 og 2022 </h6> <br> <br>
+    
+    <span class="color2013">∎ </span><button id="button1">Trafiktal 2013</button>
+    <span class="color2016">∎ </span><button id="button2">Trafiktal 2016</button>
+    <span class="color2022">∎ </span><button id="button">Trafiktal 2022</button>
+<body>
+<!-- Vi indsætter vores script API source og vores main.js fil -->
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="api.js" class="api-script"></script>
+    <br><br>
+    <h3>Hvor meget udledning er der på de forskellige veje?</h3>
+    <h6> Biler udleder meget CO2, men hvordan har udviklingen været på de forskellige veje, og hvor meget udleder de forskellige biltyper på disse veje?</h6>
+    <iframe src="trafikgraf.html" frameborder="0"></iframe>
+    <h3>Brændstofbiler vs. Elbiler</h3>
+    <h6> Visualisering af andel Brændstofbiler vs elbiler i Aarhus - Ca 5% af alle biler er elbiler.</h6>
+    <iframe src="animationer.html" class="custom-iframe" frameborder="0"></iframe>
+    <br><br>
+    <h3>Hvordan ser fremtiden ud i forhold til biltyper?</h3>
+    <h6>I 2030 satte Aarhus Kommune et mål der hed at 40% af alle biler i Aarhus skal være elbiler. Set på udviklingen de forrige 6 år, <br> er det estimeret at elbiler vil overtage dieselbiler inden da, men udvikler elbiler sig nok til at opnå 40%?</h6>
+    <iframe src="index2.html" frameborder="0"></iframe>
+    <br><br>
+      <h3>Vil målet være opnået i 2030?</h3>
+      <h6>Den udvikling vi har set de seneste år med elbiler, tyder på at der kun vil ske en stigning de næste par år for elbiler, <br> men hvis udviklingen ikke oplever en drastisk stigning, vil det tage til 2045 før der opnås 40% elbiler eller 64.822</h6>
+      <iframe src="estimatednrchart.html" frameborder="0"></iframe>
+      <br><br>
+      <h3>Hvordan vil CO2 se ud hvis målet opnås i forhold til nu?</h3>
+      <h6> Hvis CO2 målet opnås vil det kunne resultere i at der vil udledes 54.291.009 kg. CO2 mindre. Dog virker målet til at være langt væk, <br> medmindre der sker noget drastisk fra Aarhus Kommune. Derudover kan det også ses hvad faldet vil være hvis der opnåes 100% elbiler, hvilket vil være et fald på 142.911.566 kg. CO2 </h6>
+      <iframe src="bar.html" class="custom-iframe1" frameborder="0"></iframe>
+</div>
+</body>
+</html>
