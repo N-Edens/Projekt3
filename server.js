@@ -7,6 +7,7 @@ const { Client } = require('pg');
 const port = process.env.PORT || 3000;
 const cors = require('cors');
 const path = require('path');
+const { hostname } = require('os');
 
 app.use(cors());
 app.use(express.json());
@@ -40,9 +41,10 @@ app.get('/vej', (req, res) => {
 
 
 // Start serveren
-server.listen(port,  () => {
- console.log('Serveren kører på port ${port}');
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Serveren kører på port ${port}`);
 });
+
 
 
 process.on('exit',() => {
